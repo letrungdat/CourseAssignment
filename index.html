@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Manchester United</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="css/Style.css" />
+    <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css" />
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/jquery-2.1.4.js"></script>
+    <script src="js/js.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <header ng-controller="myController">
+        <button ng-click="menuClick()"> <i class="fa fa-bars menu-icon"></i>
+        </button>
+        <div class="title">HOME</div>
+        <img src="image/logo.png" />
+    </header>
+    <article class="container main" id="container">
+        <section class="nav-left">
+            <nav>
+                <a href="#"><i class="fa fa-home"></i><span>HOME</span></a>
+                <a href="#"><i class="fa fa-calendar"></i><span>FIXTURES</span></a>
+                <a href="#"><i class="fa fa-users"></i><span>TEAM</span></a>
+                <a href="#"><i class="fa fa-calendar"></i><span>LEAGUE TABLE</span></a>
+            </nav>
+        </section>
+        <section class="content">
+            <img class='head-img' src="image/headImage.jpg" />
+            <article class="home-calendar">
+                <div class="home-calendar-tittle">
+                    <i class="fa fa-calendar"></i><span>Manchester United calendar</span>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="match-headline">
+                                <span class="league-name">Europa league</span>
+                                <span class="match-date">18 FEBRUARY 2016</span>
+                            </div>
+                            <div class="match-team-logo">
+                                <img class="team-logo" src="image/fc-midtjylland-logo.png" />
+                                <img class="team-logo" src="image/Manchester_United-logo.png" />
+                            </div>
+                            <div class="match-team">
+                                <span class="team-name">Midtjlland</span>
+                                <span class="team-name">Manchester United</span>
+                            </div>
+                        </a>
+                    </li><li>
+                        <a href="#">
+                            <div class="match-headline">
+                                <span class="league-name">Europa league</span>
+                                <span class="match-date">18 FEBRUARY 2016</span>
+                            </div>
+                            <div class="match-team-logo">
+                                <img class="team-logo" src="image/fc-midtjylland-logo.png" />
+                                <img class="team-logo" src="image/Manchester_United-logo.png" />
+                            </div>
+                            <div class="match-team">
+                                <span class="team-name">Midtjlland</span>
+                                <span class="team-name">Manchester United</span>
+                            </div>
+                        </a>
+                    </li><li>
+    <a href="#">
+        <div class="match-headline">
+            <span class="league-name">Europa league</span>
+            <span class="match-date">18 FEBRUARY 2016</span>
+        </div>
+        <div class="match-team-logo">
+            <img class="team-logo" src="image/fc-midtjylland-logo.png" />
+            <img class="team-logo" src="image/Manchester_United-logo.png" />
+        </div>
+        <div class="match-team">
+            <span class="team-name">Midtjlland</span>
+            <span class="team-name">Manchester United</span>
+        </div>
+    </a>
+</li>
+                </ul>
+            </article>
+            <article class="home-news">
+                <h4>NEWS</h4>
+                <ul>
+                    <li>
+                        <a>
+                            <img class="new-img" src="image/newIMG.jpg"/>
+                            <div class="new-content">
+                                <p class="new-type">Report</p>
+                                <p class="new-title">David De Gea injured during warm-up</p>
+                                <p class="new-detail">Manchester United goalkeeper David De Gea suffered an injury in the warm-up for Thursday’s Europa League tie at FC Midtjylland, adding his name to the lengthy list of absentees.</p>    
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <img class="new-img" src="image/newIMG.jpg"/>
+                            <div class="new-content">
+                                <p class="new-type">Report</p>
+                                <p class="new-title">David De Gea injured during warm-up</p>
+                                <p class="new-detail">Manchester United goalkeeper David De Gea suffered an injury in the warm-up for Thursday’s Europa League tie at FC Midtjylland, adding his name to the lengthy list of absentees.</p>    
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <img class="new-img" src="image/newIMG.jpg"/>
+                            <div class="new-content">
+                                <p class="new-type">Report</p>
+                                <p class="new-title">David De Gea injured during warm-up</p>
+                                <p class="new-detail">Manchester United goalkeeper David De Gea suffered an injury in the warm-up for Thursday’s Europa League tie at FC Midtjylland, adding his name to the lengthy list of absentees.</p>    
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </article>
+    <footer>
+    </footer>
+</body>
+
+</html>
