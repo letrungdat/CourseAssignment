@@ -1,7 +1,8 @@
 body {
   padding: 0;
   margin: 0;
-  color: #FFF; }
+  color: #FFF;
+  overflow-x: hidden; }
   body ul {
     list-style: none; }
   body a {
@@ -147,7 +148,8 @@ body {
                   font-weight: bold; }
       body .main .content .home-news h4 {
         color: #FFF;
-        padding-left: 5px; }
+        padding-left: 5px;
+        margin-top: 20px; }
       body .main .content .home-news ul {
         padding: 5px; }
         body .main .content .home-news ul li {
@@ -170,5 +172,3 @@ body {
               text-transform: uppercase;
               color: #242323;
               font-weight: bolder; }
-
-/*# sourceMappingURL=Style.css.map */

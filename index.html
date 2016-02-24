@@ -8,20 +8,22 @@
     <link type="text/css" rel="stylesheet" href="css/Style.css" />
     <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css" />
-    <script src="lib/angular.min.js"></script>
     <script src="lib/jquery-2.1.4.js"></script>
-    <script src="js/js.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="dist/all.min.js"></script>
 </head>
 
-<body ng-app="myApp">
-    <header ng-controller="myController">
+<body ng-app="MyApp" ng-controller="MyController">
+    <header>
         <button ng-click="menuClick()"> <i class="fa fa-bars menu-icon"></i>
         </button>
         <div class="title">HOME</div>
         <img src="image/logo.png" />
     </header>
-    <article class="container main" id="container">
+    <div class="container main" id="container">
         <section class="nav-left">
             <nav>
                 <a href="#"><i class="fa fa-home"></i><span>HOME</span></a>
@@ -37,91 +39,55 @@
                     <i class="fa fa-calendar"></i><span>Manchester United calendar</span>
                 </div>
                 <ul>
-                    <li>
+                    <li ng-repeat="match in teamCalendars">
                         <a href="#">
                             <div class="match-headline">
-                                <span class="league-name">Europa league</span>
-                                <span class="match-date">18 FEBRUARY 2016</span>
+                                <span class="league-name">{{match.league}}</span>
+                                <span class="match-date">{{match.date}}</span>
                             </div>
                             <div class="match-team-logo">
-                                <img class="team-logo" src="image/fc-midtjylland-logo.png" />
-                                <img class="team-logo" src="image/Manchester_United-logo.png" />
+                                <div ng-if="match.venue">
+                                    <img class="team-logo" src="image/team/manu-logo.png" />
+                                    <img class="team-logo" src="{{match.teamlogo}}" />
+                                </div>
+                                <div ng-if="!match.venue">
+                                    <img class="team-logo" src="{{match.teamlogo}}" />
+                                    <img class="team-logo" src="image/team/manu-logo.png" />
+                                </div>
                             </div>
                             <div class="match-team">
-                                <span class="team-name">Midtjlland</span>
-                                <span class="team-name">Manchester United</span>
+                                <div ng-if="match.venue">
+                                    <span class="team-name">Manchester United</span>
+                                    <span class="team-name">{{match.team}}</span>
+                                </div>
+                                <div ng-if="!match.venue">
+                                    <span class="team-name">{{match.team}}</span>
+                                    <span class="team-name">Manchester United</span>
+                                </div>
                             </div>
                         </a>
-                    </li><li>
-                        <a href="#">
-                            <div class="match-headline">
-                                <span class="league-name">Europa league</span>
-                                <span class="match-date">18 FEBRUARY 2016</span>
-                            </div>
-                            <div class="match-team-logo">
-                                <img class="team-logo" src="image/fc-midtjylland-logo.png" />
-                                <img class="team-logo" src="image/Manchester_United-logo.png" />
-                            </div>
-                            <div class="match-team">
-                                <span class="team-name">Midtjlland</span>
-                                <span class="team-name">Manchester United</span>
-                            </div>
-                        </a>
-                    </li><li>
-    <a href="#">
-        <div class="match-headline">
-            <span class="league-name">Europa league</span>
-            <span class="match-date">18 FEBRUARY 2016</span>
-        </div>
-        <div class="match-team-logo">
-            <img class="team-logo" src="image/fc-midtjylland-logo.png" />
-            <img class="team-logo" src="image/Manchester_United-logo.png" />
-        </div>
-        <div class="match-team">
-            <span class="team-name">Midtjlland</span>
-            <span class="team-name">Manchester United</span>
-        </div>
-    </a>
-</li>
+                    </li>
                 </ul>
             </article>
             <article class="home-news">
                 <h4>NEWS</h4>
                 <ul>
-                    <li>
+                    <li ng-repeat="new in news">
                         <a>
-                            <img class="new-img" src="image/newIMG.jpg"/>
+                            <img class="new-img" src="{{new.image}}" />
                             <div class="new-content">
-                                <p class="new-type">Report</p>
-                                <p class="new-title">David De Gea injured during warm-up</p>
-                                <p class="new-detail">Manchester United goalkeeper David De Gea suffered an injury in the warm-up for Thursday’s Europa League tie at FC Midtjylland, adding his name to the lengthy list of absentees.</p>    
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <img class="new-img" src="image/newIMG.jpg"/>
-                            <div class="new-content">
-                                <p class="new-type">Report</p>
-                                <p class="new-title">David De Gea injured during warm-up</p>
-                                <p class="new-detail">Manchester United goalkeeper David De Gea suffered an injury in the warm-up for Thursday’s Europa League tie at FC Midtjylland, adding his name to the lengthy list of absentees.</p>    
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <img class="new-img" src="image/newIMG.jpg"/>
-                            <div class="new-content">
-                                <p class="new-type">Report</p>
-                                <p class="new-title">David De Gea injured during warm-up</p>
-                                <p class="new-detail">Manchester United goalkeeper David De Gea suffered an injury in the warm-up for Thursday’s Europa League tie at FC Midtjylland, adding his name to the lengthy list of absentees.</p>    
+                                <p class="new-type">{{new.type}}</p>
+                                <p class="new-title"> {{new.title}}</p>
+                                <p class="new-detail">{{new.content}}</p>
                             </div>
                         </a>
                     </li>
                 </ul>
             </article>
+            <article class="home-team">
+            </article>
         </section>
-    </article>
+    </div>
     <footer>
     </footer>
 </body>
