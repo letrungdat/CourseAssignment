@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="myApp">
 
 <head>
     <title>Manchester United</title>
@@ -10,82 +10,32 @@
     <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css" />
     <script src="lib/jquery-2.1.4.js"></script>
     <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="dist/all.min.js"></script>
+    <script src="dist/all.min.js" type="text/javascript"></script>
 </head>
 
-<body ng-app="MyApp" ng-controller="MyController">
+<body ng-controller="MyController">
     <header>
         <button ng-click="menuClick()"> <i class="fa fa-bars menu-icon"></i>
         </button>
-        <div class="title">HOME</div>
+        <div class="title" ng-bind="page.title">HOME</div>
         <img src="image/logo.png" />
     </header>
     <div class="container main" id="container">
         <section class="nav-left">
             <nav>
-                <a href="#"><i class="fa fa-home"></i><span>HOME</span></a>
-                <a href="#"><i class="fa fa-calendar"></i><span>FIXTURES</span></a>
-                <a href="#"><i class="fa fa-users"></i><span>TEAM</span></a>
-                <a href="#"><i class="fa fa-calendar"></i><span>LEAGUE TABLE</span></a>
+                <a href="#/" ng-click="menuClick()"><i class="fa fa-home"></i><span>HOME</span></a>
+                <a href="#" ng-click="menuClick()"><i class="fa fa-calendar"></i><span>FIXTURES</span></a>
+                <a href="#team" ng-click="menuClick()"><i class="fa fa-users"></i><span>TEAM</span></a>
+                <a href="#" ng-click="menuClick()"><i class="fa fa-calendar"></i><span>LEAGUE TABLE</span></a>
             </nav>
         </section>
         <section class="content">
             <img class='head-img' src="image/headImage.jpg" />
-            <article class="home-calendar">
-                <div class="home-calendar-tittle">
-                    <i class="fa fa-calendar"></i><span>Manchester United calendar</span>
-                </div>
-                <ul>
-                    <li ng-repeat="match in teamCalendars">
-                        <a href="#">
-                            <div class="match-headline">
-                                <span class="league-name">{{match.league}}</span>
-                                <span class="match-date">{{match.date}}</span>
-                            </div>
-                            <div class="match-team-logo">
-                                <div ng-if="match.venue">
-                                    <img class="team-logo" src="image/team/manu-logo.png" />
-                                    <img class="team-logo" src="{{match.teamlogo}}" />
-                                </div>
-                                <div ng-if="!match.venue">
-                                    <img class="team-logo" src="{{match.teamlogo}}" />
-                                    <img class="team-logo" src="image/team/manu-logo.png" />
-                                </div>
-                            </div>
-                            <div class="match-team">
-                                <div ng-if="match.venue">
-                                    <span class="team-name">Manchester United</span>
-                                    <span class="team-name">{{match.team}}</span>
-                                </div>
-                                <div ng-if="!match.venue">
-                                    <span class="team-name">{{match.team}}</span>
-                                    <span class="team-name">Manchester United</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </article>
-            <article class="home-news">
-                <h4>NEWS</h4>
-                <ul>
-                    <li ng-repeat="new in news">
-                        <a>
-                            <img class="new-img" src="{{new.image}}" />
-                            <div class="new-content">
-                                <p class="new-type">{{new.type}}</p>
-                                <p class="new-title"> {{new.title}}</p>
-                                <p class="new-detail">{{new.content}}</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </article>
-            <article class="home-team">
-            </article>
+            <div ng-view></div>
         </section>
     </div>
     <footer>

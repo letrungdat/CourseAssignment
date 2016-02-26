@@ -24,6 +24,13 @@ $borderCl:#555555;
 @mixin borderBasic() {
     border: 1px solid $borderCl;
 }
+@mixin flex-flow(){
+    -webkit-flex-flow:wrap;
+    -moz-flex-flow:wrap;
+    -ms-flex-flow:wrap;
+    -o-flex-flow:wrap;
+    flex-flow:wrap;
+}
 
 body {
     padding: 0;
@@ -165,6 +172,7 @@ body {
                     li {
                         border-top: 1px solid $borderCl;
                         padding: 5px;
+                        padding-bottom: 10px;
                         &:first-child {
                             border-top: none;
                         }
@@ -178,17 +186,16 @@ body {
                                 }
                             }
                             .match-team-logo {
-                                width: 150px;
+                                width: 130px;
                                 display: block;
                                 float: left;
                                 .team-logo {
                                     width: 50px;
-                                    margin-left: 20px;
+                                    margin-left: 10px;
                                 }
                             }
                             .match-team {
                                 display: inline-block;
-                                width: 200px;
                                 padding-top: 7px;
                                 margin-left: 20px;
                                 .team-name {
@@ -200,37 +207,88 @@ body {
                     }
                 }
             }
-            .home-news{
-                h4{
+            .home-news {
+                h4 {
                     color: $basic;
                     padding-left: 5px;
                     margin-top: 20px;
                 }
-                ul{
-                    padding:5px;;
-                    li{
+                ul {
+                    padding: 5px;
+                    ;
+                    li {
                         background: $basic;
                         @include borderBasic();
                         border-top: 3px solid $yel;
                         margin-bottom: 15px;
-                        a{
-                            img{
+                        a {
+                            img {
                                 width: 100%;
                             }
-                            .new-content{
+                            .new-content {
                                 padding: 5px 15px 5px 15px;
                                 color: $grey;
-                                .new-type{
+                                .new-type {
                                     text-transform: uppercase;
                                     font-weight: 600;
                                     margin-bottom: 3px;
                                     font-size: 0.8em;
                                 }
-                                .new-title{
+                                .new-title {
                                     margin-bottom: 5px;
                                     text-transform: uppercase;
                                     color: $black;
                                     font-weight: bolder;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .squad {
+                h3 {
+                    color: $basic;
+                    padding-left: 5px;
+                    margin-top: 20px;
+                }
+                ul {
+                    padding: 5px;
+                    text-align: center;
+                    display: flex;
+                    @include flex-flow();
+                    li {
+                        background: $red;
+                        flex-basis:45%;
+                        width: 45%;
+                        @include borderBasic();
+                        border-top: 3px solid $yel;
+                        margin-left: calc(2.5% - 1px);
+                        margin-right: calc(2.5% - 1px);
+                        margin-bottom: 15px;
+                        a {
+                            img {
+                                width: 100%;
+                            }
+                            div {
+                                background: $red;
+                                width: 100%;
+                                bottom: 0;
+                                color: $yel;
+                                display: flex;
+                                border-top: 1px solid $borderCl;
+                                .player-number {
+                                    width: 40px;
+                                    display: inline-block;
+                                    text-align: center;
+                                    line-height: 40px;
+                                    font-size: 25px;
+                                    border-right: 1px solid $borderCl;
+                                }
+                                .player-name{
+                                    width: calc(100% - 44px);
+                                    display: inline-block;
+                                    line-height: 20px;
+                                    text-transform: uppercase;
                                 }
                             }
                         }
