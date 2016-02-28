@@ -215,3 +215,86 @@ body {
               display: inline-block;
               line-height: 20px;
               text-transform: uppercase; }
+      body .main .content .player-detail img {
+        width: 100%; }
+      body .main .content .player-detail .player-name-box {
+        color: #FFF;
+        display: block;
+        overflow: hidden; }
+        body .main .content .player-detail .player-name-box .player-name {
+          margin-left: 1em;
+          float: left;
+          padding-bottom: 5px;
+          text-transform: uppercase; }
+        body .main .content .player-detail .player-name-box .player-number {
+          float: right;
+          margin-right: 1em; }
+      body .main .content .player-detail .player-info {
+        background: #EF6A6A;
+        margin-bottom: 1.5em; }
+        body .main .content .player-detail .player-info table {
+          width: 100%; }
+          body .main .content .player-detail .player-info table tr {
+            background: #d4001f; }
+            body .main .content .player-detail .player-info table tr .info-col-left {
+              width: 120px;
+              color: #FCD800;
+              padding: 2px;
+              padding-left: 0.5em;
+              font-size: 0.9em; }
+            body .main .content .player-detail .player-info table tr .info-col-right {
+              color: #FFF; }
+      body .main .content .player-detail .player-text {
+        background: #FFF;
+        padding: 5px; }
+        body .main .content .player-detail .player-text .player-text-title {
+          font-weight: bold; }
+        body .main .content .player-detail .player-text .player-text-content {
+          color: #555555;
+          font-size: 0.9em; }
+      body .main .content .table-page {
+        padding: 5px;
+        width: 100%;
+        overflow: hidden; }
+        body .main .content .table-page img {
+          padding: 5px;
+          width: 50px; }
+        body .main .content .table-page h4 {
+          color: #FFF;
+          margin-bottom: 20px;
+          width: calc(100% - 55px);
+          display: inline-block; }
+        body .main .content .table-page table {
+          text-align: center;
+          border-collapse: collapse;
+          width: 100%;
+          color: #555555; }
+          body .main .content .table-page table tr {
+            background: #FFF; }
+            body .main .content .table-page table tr td {
+              width: 20px; }
+              body .main .content .table-page table tr td:nth-child(3) {
+                width: auto;
+                text-align: left;
+                padding-left: 5px; }
+              body .main .content .table-page table tr td:nth-child(2) {
+                text-align: right;
+                width: 30px; }
+          body .main .content .table-page table thead {
+            border: 1px solid #555555; }
+            body .main .content .table-page table thead tr td {
+              padding: 5px;
+              font-weight: bold; }
+          body .main .content .table-page table tbody {
+            border: 1px solid #555555; }
+            body .main .content .table-page table tbody .mu-team {
+              background: #E8E8E8; }
+            body .main .content .table-page table tbody tr {
+              border-bottom: 1px solid #8c8c8c; }
+              body .main .content .table-page table tbody tr td {
+                padding-top: 5px;
+                padding-bottom: 5px; }
+                body .main .content .table-page table tbody tr td:nth-child(4) {
+                  font-weight: bold; }
+                body .main .content .table-page table tbody tr td img {
+                  width: 100%; }

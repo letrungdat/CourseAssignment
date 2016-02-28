@@ -1,0 +1,43 @@
+<div class="player-detail" ng-repeat="player in players">
+                <img src="image/player_detail/DeGea.jpg" />
+                <div class="player-name-box">
+                    <h3 class="player-name">{{player.name}}</h3>
+                    <h3 class="player-number">{{player.number}}</h3>
+                </div>
+                <div class="player-info">
+                    <table>
+                        <tr>
+                            <td class="info-col-left">Position</td>
+                            <td class="info-col-right">{{player.postion}}</td>
+                        </tr>
+                        <tr>
+                            <td class="info-col-left">Birthdate</td>
+                            <td class="info-col-right">{{player.birthdate}}</td>
+                        </tr>
+                        <tr>
+                            <td class="info-col-left">Birthplace</td>
+                            <td class="info-col-right">{{player.birthplace}}</td>
+                        </tr>
+                        <tr>
+                            <td class="info-col-left">Joined United</td>
+                            <td class="info-col-right">{{player.jointedDate}}</td>
+                        </tr>
+                        <tr>
+                            <td class="info-col-left">International</td>
+                            <td class="info-col-right">{{player.international}}</td>
+                        </tr>
+                        <tr>
+                            <td class="info-col-left">Appearances</td>
+                            <td class="info-col-right">{{player.appearances}}</td>
+                        </tr>
+                        <tr>
+                            <td class="info-col-left">Goals Scored:</td>
+                            <td class="info-col-right">{{player.goalScore}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="player-text">
+                    <p class="player-text-title">{{player.title}}</p>
+                    <p class="player-text-content">{{player.detail}}</p>
+                </div>
+            </div>
