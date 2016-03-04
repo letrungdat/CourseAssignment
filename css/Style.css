@@ -1,0 +1,414 @@
+body {
+  padding: 0;
+  margin: 0;
+  color: #FFF;
+  overflow-x: hidden; }
+  body ul {
+    list-style: none; }
+  body a {
+    color: #FFF; }
+    body a:hover {
+      text-decoration: none;
+      color: #FFF; }
+      body a:hover span {
+        text-decoration: none; }
+  body header {
+    color: #FFF;
+    background: #d4001f;
+    height: 50px;
+    border: 1px solid #555555; }
+    body header button {
+      float: left;
+      display: inline-block;
+      font-size: 30px;
+      height: 50px;
+      width: 50px;
+      background: transparent;
+      border: none;
+      color: #242323;
+      border-right: 1px solid #555555;
+      outline: none; }
+    body header div {
+      position: absolute;
+      width: calc(100% - 100px);
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      height: 40px;
+      margin: 10px 50px 0 50px;
+      color: #FCD800; }
+    body header img {
+      float: right;
+      display: inline;
+      width: 40px;
+      height: 40px;
+      vertical-align: top;
+      margin-top: 5px;
+      margin-right: 10px; }
+  body #container.open {
+    left: 0; }
+  body .main {
+    -webkit-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    -ms-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    display: block;
+    position: relative;
+    width: calc(100% + 250px) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    left: -250px; }
+    body .main .nav-left {
+      position: absolute;
+      z-index: 1;
+      background: #242323;
+      width: 250px;
+      display: block; }
+      body .main .nav-left nav a {
+        text-align: center;
+        padding: 5px;
+        width: 100%;
+        height: 50px;
+        display: block;
+        border: 1px solid #555555;
+        border-bottom: none; }
+        body .main .nav-left nav a:last-child {
+          border-bottom: 1px solid #555555; }
+        body .main .nav-left nav a:first-child {
+          border-top: none; }
+        body .main .nav-left nav a i {
+          float: left;
+          margin-left: 20px;
+          font-size: 35px;
+          color: #555555; }
+        body .main .nav-left nav a span {
+          margin-top: 10px;
+          height: 20px;
+          font-size: 14px;
+          display: inline-block;
+          width: 170px;
+          text-align: left;
+          padding-left: 25px;
+          color: #555555; }
+    body .main .content {
+      position: absolute;
+      z-index: 2;
+      background: #242323;
+      width: calc(100% - 250px);
+      display: block;
+      left: 250px; }
+      body .main .content .head-img {
+        width: 100%; }
+      body .main .content .home-calendar {
+        display: block;
+        margin: 5px;
+        margin-top: 15px;
+        border: 1px solid #555555;
+        border-top: 3px solid #FCD800; }
+        body .main .content .home-calendar .home-calendar-tittle {
+          padding: 5px;
+          font-size: 17px;
+          color: #FFF;
+          border-bottom: 1px solid #555555; }
+          body .main .content .home-calendar .home-calendar-tittle i {
+            font-size: 25px;
+            margin-right: 20px; }
+        body .main .content .home-calendar ul {
+          background: #FFF;
+          padding: 0;
+          padding-bottom: 5px;
+          margin: 0; }
+          body .main .content .home-calendar ul li {
+            border-top: 1px solid #555555;
+            padding: 5px;
+            padding-bottom: 10px; }
+            body .main .content .home-calendar ul li:first-child {
+              border-top: none; }
+            body .main .content .home-calendar ul li a {
+              color: #8c8c8c; }
+              body .main .content .home-calendar ul li a .match-headline {
+                padding-bottom: 5px; }
+                body .main .content .home-calendar ul li a .match-headline .league-name img {
+                  width: 15px;
+                  vertical-align: middle;
+                  margin-right: 10px; }
+                body .main .content .home-calendar ul li a .match-headline .match-date {
+                  float: right;
+                  font-size: 11px; }
+              body .main .content .home-calendar ul li a .match-team-logo {
+                width: 130px;
+                display: block;
+                float: left; }
+                body .main .content .home-calendar ul li a .match-team-logo .team-logo {
+                  width: 50px;
+                  margin-left: 10px; }
+              body .main .content .home-calendar ul li a .match-team {
+                display: inline-block;
+                padding-top: 7px;
+                margin-left: 20px; }
+                body .main .content .home-calendar ul li a .match-team .team-name {
+                  display: block;
+                  font-weight: bold; }
+      body .main .content .home-news h4 {
+        color: #FFF;
+        padding-left: 5px;
+        margin-top: 20px; }
+      body .main .content .home-news ul {
+        padding: 5px; }
+        body .main .content .home-news ul li {
+          background: #FFF;
+          border: 1px solid #555555;
+          border-top: 3px solid #FCD800;
+          margin-bottom: 15px; }
+          body .main .content .home-news ul li a img {
+            width: 100%; }
+          body .main .content .home-news ul li a .new-content {
+            padding: 5px 15px 5px 15px;
+            color: #8c8c8c; }
+            body .main .content .home-news ul li a .new-content .new-type {
+              text-transform: uppercase;
+              font-weight: 600;
+              margin-bottom: 3px;
+              font-size: 0.8em; }
+            body .main .content .home-news ul li a .new-content .new-title {
+              margin-bottom: 5px;
+              text-transform: uppercase;
+              color: #242323;
+              font-weight: bolder; }
+      body .main .content .squad h3 {
+        color: #FFF;
+        padding-left: 5px;
+        margin-top: 20px; }
+      body .main .content .squad ul {
+        padding: 5px;
+        text-align: center;
+        display: flex;
+        -webkit-flex-flow: wrap;
+        -moz-flex-flow: wrap;
+        -ms-flex-flow: wrap;
+        -o-flex-flow: wrap;
+        flex-flow: wrap; }
+        body .main .content .squad ul li {
+          background: #d4001f;
+          flex-basis: 45%;
+          width: 45%;
+          border: 1px solid #555555;
+          border-top: 3px solid #FCD800;
+          margin-left: calc(2.5% - 1px);
+          margin-right: calc(2.5% - 1px);
+          margin-bottom: 15px; }
+          body .main .content .squad ul li a img {
+            width: 100%; }
+          body .main .content .squad ul li a div {
+            background: #d4001f;
+            width: 100%;
+            bottom: 0;
+            color: #FCD800;
+            display: flex;
+            border-top: 1px solid #555555; }
+            body .main .content .squad ul li a div .player-number {
+              width: 40px;
+              display: inline-block;
+              text-align: center;
+              line-height: 40px;
+              font-size: 25px;
+              border-right: 1px solid #555555; }
+            body .main .content .squad ul li a div .player-name {
+              width: calc(100% - 44px);
+              display: inline-block;
+              line-height: 20px;
+              text-transform: uppercase; }
+      body .main .content .player-detail img {
+        width: 100%; }
+      body .main .content .player-detail .player-name-box {
+        color: #FFF;
+        display: block;
+        overflow: hidden; }
+        body .main .content .player-detail .player-name-box .player-name {
+          margin-left: 1em;
+          float: left;
+          padding-bottom: 5px;
+          text-transform: uppercase; }
+        body .main .content .player-detail .player-name-box .player-number {
+          float: right;
+          margin-right: 1em; }
+      body .main .content .player-detail .player-info {
+        background: #EF6A6A;
+        margin-bottom: 1.5em; }
+        body .main .content .player-detail .player-info table {
+          width: 100%; }
+          body .main .content .player-detail .player-info table tr {
+            background: #d4001f; }
+            body .main .content .player-detail .player-info table tr .info-col-left {
+              width: 120px;
+              color: #FCD800;
+              padding: 2px;
+              padding-left: 0.5em;
+              font-size: 0.9em; }
+            body .main .content .player-detail .player-info table tr .info-col-right {
+              color: #FFF; }
+      body .main .content .player-detail .player-text {
+        background: #FFF;
+        padding: 5px; }
+        body .main .content .player-detail .player-text .player-text-title {
+          font-weight: bold; }
+        body .main .content .player-detail .player-text .player-text-content {
+          color: #555555;
+          font-size: 0.9em; }
+      body .main .content .table-page {
+        padding: 5px;
+        width: 100%;
+        overflow: hidden; }
+        body .main .content .table-page img {
+          padding: 5px;
+          width: 50px; }
+        body .main .content .table-page h4 {
+          color: #FFF;
+          margin-bottom: 20px;
+          width: calc(100% - 55px);
+          display: inline-block; }
+        body .main .content .table-page table {
+          text-align: center;
+          border-collapse: collapse;
+          width: 100%;
+          color: #555555; }
+          body .main .content .table-page table tr {
+            background: #FFF; }
+            body .main .content .table-page table tr td {
+              width: 20px; }
+              body .main .content .table-page table tr td:nth-child(3) {
+                width: auto;
+                text-align: left;
+                padding-left: 5px; }
+              body .main .content .table-page table tr td:nth-child(2) {
+                text-align: right;
+                width: 30px; }
+          body .main .content .table-page table thead {
+            border: 1px solid #555555; }
+            body .main .content .table-page table thead tr td {
+              padding: 5px;
+              font-weight: bold; }
+          body .main .content .table-page table tbody {
+            border: 1px solid #555555; }
+            body .main .content .table-page table tbody .mu-team {
+              background: #E8E8E8; }
+            body .main .content .table-page table tbody tr {
+              border-bottom: 1px solid #8c8c8c; }
+              body .main .content .table-page table tbody tr td {
+                padding-top: 5px;
+                padding-bottom: 5px; }
+                body .main .content .table-page table tbody tr td:nth-child(4) {
+                  font-weight: bold; }
+                body .main .content .table-page table tbody tr td img {
+                  width: 100%; }
+      body .main .content .calendar-page {
+        padding: 5px; }
+        body .main .content .calendar-page .calendar-page-headline h4 {
+          color: #FFF;
+          width: 220px;
+          display: inline-block; }
+          body .main .content .calendar-page .calendar-page-headline h4 i {
+            font-size: 22px;
+            margin-right: 10px; }
+        body .main .content .calendar-page .calendar-page-headline .view-box {
+          float: right;
+          margin-top: 10px;
+          width: 71px; }
+          body .main .content .calendar-page .calendar-page-headline .view-box a {
+            font-size: 18px;
+            border: 1px solid #8c8c8c;
+            padding: 6px;
+            margin: 0; }
+        body .main .content .calendar-page .calendar-content {
+          display: none;
+          opacity: 0; }
+          body .main .content .calendar-page .calendar-content.show {
+            display: block;
+            opacity: 1; }
+          body .main .content .calendar-page .calendar-content .calendar-header {
+            width: 100%;
+            text-align: center;
+            color: #FFF;
+            padding: 3px 0 3px 0;
+            border: 1px solid #555555;
+            border-top: 3px solid #FCD800; }
+            body .main .content .calendar-page .calendar-content .calendar-header i {
+              line-height: 30px;
+              width: 30px;
+              font-size: 20px;
+              cursor: pointer;
+              background-color: rgba(0, 0, 0, 0.3);
+              -webkit-border-radius: 5px;
+              -moz-border-radius: 5px;
+              -ms-border-radius: 5px;
+              -o-border-radius: 5px;
+              border-radius: 5px;
+              vertical-align: middle; }
+            body .main .content .calendar-page .calendar-content .calendar-header span {
+              line-height: 30px;
+              margin: 0 10px 0 10px;
+              width: 120px;
+              display: inline-block; }
+          body .main .content .calendar-page .calendar-content table {
+            width: 100%; }
+            body .main .content .calendar-page .calendar-content table .week {
+              background-color: #FFF; }
+              body .main .content .calendar-page .calendar-content table .week .day {
+                width: calc(100% / 7);
+                position: relative;
+                height: 50px;
+                text-align: center;
+                border: 2px solid #242323;
+                text-align: center;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+                border-radius: 10px; }
+                body .main .content .calendar-page .calendar-content table .week .day.match {
+                  background-image: url("../image/triangle-red.png");
+                  background-size: 50px;
+                  background-repeat: no-repeat;
+                  background-position: top left; }
+                  body .main .content .calendar-page .calendar-content table .week .day.match span {
+                    color: #FFF; }
+                body .main .content .calendar-page .calendar-content table .week .day.different-month {
+                  opacity: 0.6;
+                  background-color: darkgray; }
+                  body .main .content .calendar-page .calendar-content table .week .day.different-month span {
+                    color: #FFF; }
+                body .main .content .calendar-page .calendar-content table .week .day span {
+                  position: absolute;
+                  top: 2px;
+                  left: 2px;
+                  float: left;
+                  color: #8c8c8c;
+                  width: 100%;
+                  text-align: left; }
+                body .main .content .calendar-page .calendar-content table .week .day img {
+                  width: 35px;
+                  float: right; }
+              body .main .content .calendar-page .calendar-content table .week.names {
+                width: 100%;
+                height: 25px;
+                line-height: 25px;
+                color: #FFF; }
+                body .main .content .calendar-page .calendar-content table .week.names .day {
+                  padding: 2px;
+                  height: 25px;
+                  line-height: 25px;
+                  background-color: #d4001f;
+                  border-bottom: 3px solid #242323;
+                  -webkit-border-radius: 10px;
+                  -moz-border-radius: 10px;
+                  -ms-border-radius: 10px;
+                  -o-border-radius: 10px;
+                  border-radius: 10px;
+                  margin-left: 2px; }
+        body .main .content .calendar-page .calendar-list-content {
+          display: none;
+          opacity: 0; }
+          body .main .content .calendar-page .calendar-list-content.show {
+            display: block;
+            opacity: 1; }

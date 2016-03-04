@@ -1,0 +1,73 @@
+<div class="calendar-page">
+    <div class="calendar-page-headline">
+        <h4><i class="fa fa-calendar"></i>ManUnited Calendar</h4>
+        <div class="view-box">
+            <a href="" class="calendar-btn" ng-click="changeView('calendar')"><i class="fa fa-calendar"></i></a>
+            <a href="" class="calendar-list-btn" ng-click="changeView('list')"><i class="fa fa-list"></i></a>
+        </div>
+    </div>
+    <div class="calendar-content show" id="calendar-view">
+        <div class="calendar-header">
+            <i class="fa fa-angle-left" ng-click="previous()"></i>
+            <span>{{month.format("MMMM, YYYY")}}</span>
+            <i class="fa fa-angle-right" ng-click="next()"></i>
+        </div>
+        <table>
+            <tr class="week names">
+                <th class="day">Sun</th>
+                <th class="day">Mon</th>
+                <th class="day">Tue</th>
+                <th class="day">Wed</th>
+                <th class="day">Thu</th>
+                <th class="day">Fri</th>
+                <th class="day">Sat</th>
+            </tr>
+            <tr class="week" ng-repeat="week in weeks">
+                <td class="day" ng-class="{ today: day.isToday, match:day.haveMatch, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }" ng-click="select(day)" ng-repeat="day in week.days">
+                    <span>{{day.number}}</span>
+                    <img ng-if="day.haveMatch" src="{{day.match.teamlogo}}" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="calendar-list-content" id="list-view">
+        <article class="home-calendar">
+            <div class="home-calendar-tittle">
+                <i class="fa fa-calendar"></i><span>Manchester United calendar</span>
+            </div>
+            <ul>
+                <li ng-repeat="match in teamCalendars">
+                    <a href="#">
+                        <div class="match-headline">
+                            <span class="league-name">
+                                    <img ng-if="match.league == 'Barclays Premier League'" src="image/Premier_League_logo.svg"/>
+                                    <img ng-if="match.league == 'Europa League'" src="image/europa_league_logo.png"/>
+                                    <img ng-if="match.league == 'FA Cup'" src="image/facup-logo.png" />{{match.league}}</span>
+                            <span class="match-date">{{match.date}} - {{match.time}}</span>
+                        </div>
+                        <div class="match-team-logo">
+                            <div ng-if="match.venue">
+                                <img class="team-logo" src="image/team/manu-logo.png" />
+                                <img class="team-logo" src="{{match.teamlogo}}" />
+                            </div>
+                            <div ng-if="!match.venue">
+                                <img class="team-logo" src="{{match.teamlogo}}" />
+                                <img class="team-logo" src="image/team/manu-logo.png" />
+                            </div>
+                        </div>
+                        <div class="match-team">
+                            <div ng-if="match.venue">
+                                <span class="team-name">Manchester United</span>
+                                <span class="team-name">{{match.team}}</span>
+                            </div>
+                            <div ng-if="!match.venue">
+                                <span class="team-name">{{match.team}}</span>
+                                <span class="team-name">Manchester United</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </article>
+    </div>
+</div>

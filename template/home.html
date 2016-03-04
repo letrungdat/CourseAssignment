@@ -1,0 +1,53 @@
+<img class='head-img' src="image/headImage.jpg" />
+<article class="home-calendar">
+    <div class="home-calendar-tittle">
+        <i class="fa fa-calendar"></i><span>Manchester United calendar</span>
+    </div>
+    <ul>
+        <li ng-repeat="match in teamCalendars">
+            <a href="#">
+                <div class="match-headline">
+                    <span class="league-name">{{match.league}}</span>
+                    <span class="match-date">{{match.date}} - {{match.time}}</span>
+                </div>
+                <div class="match-team-logo">
+                    <div ng-if="match.venue">
+                        <img class="team-logo" src="image/team/manu-logo.png" />
+                        <img class="team-logo" src="{{match.teamlogo}}" />
+                    </div>
+                    <div ng-if="!match.venue">
+                        <img class="team-logo" src="{{match.teamlogo}}" />
+                        <img class="team-logo" src="image/team/manu-logo.png" />
+                    </div>
+                </div>
+                <div class="match-team">
+                    <div ng-if="match.venue">
+                        <span class="team-name">Manchester United</span>
+                        <span class="team-name">{{match.team}}</span>
+                    </div>
+                    <div ng-if="!match.venue">
+                        <span class="team-name">{{match.team}}</span>
+                        <span class="team-name">Manchester United</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</article>
+<article class="home-news">
+    <h4>NEWS</h4>
+    <ul>
+        <li ng-repeat="new in news">
+            <a>
+                <img class="new-img" src="{{new.image}}" />
+                <div class="new-content">
+                    <p class="new-type">{{new.type}}</p>
+                    <p class="new-title"> {{new.title}}</p>
+                    <p class="new-detail">{{new.content}}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</article>
+<article class="home-team">
+</article>

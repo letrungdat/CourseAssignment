@@ -1,0 +1,32 @@
+<div class="table-page">
+                <img src="../image/Premier_League_logo.svg"/>
+                <h4>Barclays Priemer League</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <td title="Position">Pos</td>
+                            <td></td>
+                            <td>Team</td>
+                            <td title="Points">Pts</td>
+                            <td title="Play">P</td>
+                            <td title="Won">W</td>
+                            <td title="Draw">D</td>
+                            <td title="Lose">L</td>
+                            <td title="Goal Difference">GD</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="team in table" ng-class="team.name == 'Manchester United' ? 'mu-team':''">
+                            <td>{{team.position}}</td>
+                            <td><img src="{{team.logo}}"/></td>
+                            <td>{{team.name}}</td>
+                            <td>{{team.points}}</td>
+                            <td>{{team.play}}</td>
+                            <td>{{team.won}}</td>
+                            <td>{{team.draw}}</td>
+                            <td>{{team.lose}}</td>
+                            <td>{{team.goalsDifference}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>

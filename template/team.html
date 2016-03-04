@@ -1,0 +1,50 @@
+<article class="squad">
+                <h3>Goalkeeper</h3>
+                <ul>
+                    <li ng-repeat="player in goalkeepers" class="player-box">
+                        <a href="#player/{{player.number}}">
+                            <img class="player-img" src="{{player.image}}"/>
+                            <div>
+                                <span class="player-number">{{player.number}}</span>
+                                <span class="player-name">{{player.name}}</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <h3>Defender</h3>
+                                <ul>
+                    <li ng-repeat="player in defenders" class="player-box">
+                        <a href="#">
+                            <img class="player-img" src="{{player.image}}"/>
+                            <div>
+                                <span class="player-number">{{player.number}}</span>
+                                <span class="player-name">{{player.name}}</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <h3>Midfielder</h3>
+                                <ul>
+                    <li ng-repeat="player in midfielders" class="player-box">
+                        <a href="#">
+                            <img class="player-img" src="{{player.image}}"/>
+                            <div>
+                                <span class="player-number">{{player.number}}</span>
+                                <span class="player-name">{{player.name}}</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <h3>Striker</h3>
+                                <ul>
+                    <li ng-repeat="player in strikers" class="player-box">
+                        <a href="#">
+                            <img class="player-img" src="{{player.image}}"/>
+                            <div>
+                                <span class="player-number">{{player.number}}</span>
+                                <span class="player-name">{{player.name}}</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </article>
