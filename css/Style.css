@@ -129,6 +129,10 @@ body {
               color: #8c8c8c; }
               body .main .content .home-calendar ul li a .match-headline {
                 padding-bottom: 5px; }
+                body .main .content .home-calendar ul li a .match-headline .league-name img {
+                  width: 15px;
+                  vertical-align: middle;
+                  margin-right: 10px; }
                 body .main .content .home-calendar ul li a .match-headline .match-date {
                   float: right;
                   font-size: 11px; }
@@ -298,3 +302,113 @@ body {
                   font-weight: bold; }
                 body .main .content .table-page table tbody tr td img {
                   width: 100%; }
+      body .main .content .calendar-page {
+        padding: 5px; }
+        body .main .content .calendar-page .calendar-page-headline h4 {
+          color: #FFF;
+          width: 220px;
+          display: inline-block; }
+          body .main .content .calendar-page .calendar-page-headline h4 i {
+            font-size: 22px;
+            margin-right: 10px; }
+        body .main .content .calendar-page .calendar-page-headline .view-box {
+          float: right;
+          margin-top: 10px;
+          width: 71px; }
+          body .main .content .calendar-page .calendar-page-headline .view-box a {
+            font-size: 18px;
+            border: 1px solid #8c8c8c;
+            padding: 6px;
+            margin: 0; }
+        body .main .content .calendar-page .calendar-content {
+          display: none;
+          opacity: 0; }
+          body .main .content .calendar-page .calendar-content.show {
+            display: block;
+            opacity: 1; }
+          body .main .content .calendar-page .calendar-content .calendar-header {
+            width: 100%;
+            text-align: center;
+            color: #FFF;
+            padding: 3px 0 3px 0;
+            border: 1px solid #555555;
+            border-top: 3px solid #FCD800; }
+            body .main .content .calendar-page .calendar-content .calendar-header i {
+              line-height: 30px;
+              width: 30px;
+              font-size: 20px;
+              cursor: pointer;
+              background-color: rgba(0, 0, 0, 0.3);
+              -webkit-border-radius: 5px;
+              -moz-border-radius: 5px;
+              -ms-border-radius: 5px;
+              -o-border-radius: 5px;
+              border-radius: 5px;
+              vertical-align: middle; }
+            body .main .content .calendar-page .calendar-content .calendar-header span {
+              line-height: 30px;
+              margin: 0 10px 0 10px;
+              width: 120px;
+              display: inline-block; }
+          body .main .content .calendar-page .calendar-content table {
+            width: 100%; }
+            body .main .content .calendar-page .calendar-content table .week {
+              background-color: #FFF; }
+              body .main .content .calendar-page .calendar-content table .week .day {
+                width: calc(100% / 7);
+                position: relative;
+                height: 50px;
+                text-align: center;
+                border: 2px solid #242323;
+                text-align: center;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+                border-radius: 10px; }
+                body .main .content .calendar-page .calendar-content table .week .day.match {
+                  background-image: url("../image/triangle-red.png");
+                  background-size: 50px;
+                  background-repeat: no-repeat;
+                  background-position: top left; }
+                  body .main .content .calendar-page .calendar-content table .week .day.match span {
+                    color: #FFF; }
+                body .main .content .calendar-page .calendar-content table .week .day.different-month {
+                  opacity: 0.6;
+                  background-color: darkgray; }
+                  body .main .content .calendar-page .calendar-content table .week .day.different-month span {
+                    color: #FFF; }
+                body .main .content .calendar-page .calendar-content table .week .day span {
+                  position: absolute;
+                  top: 2px;
+                  left: 2px;
+                  float: left;
+                  color: #8c8c8c;
+                  width: 100%;
+                  text-align: left; }
+                body .main .content .calendar-page .calendar-content table .week .day img {
+                  width: 35px;
+                  float: right; }
+              body .main .content .calendar-page .calendar-content table .week.names {
+                width: 100%;
+                height: 25px;
+                line-height: 25px;
+                color: #FFF; }
+                body .main .content .calendar-page .calendar-content table .week.names .day {
+                  padding: 2px;
+                  height: 25px;
+                  line-height: 25px;
+                  background-color: #d4001f;
+                  border-bottom: 3px solid #242323;
+                  -webkit-border-radius: 10px;
+                  -moz-border-radius: 10px;
+                  -ms-border-radius: 10px;
+                  -o-border-radius: 10px;
+                  border-radius: 10px;
+                  margin-left: 2px; }
+        body .main .content .calendar-page .calendar-list-content {
+          display: none;
+          opacity: 0; }
+          body .main .content .calendar-page .calendar-list-content.show {
+            display: block;
+            opacity: 1; }

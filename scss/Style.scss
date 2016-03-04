@@ -181,6 +181,13 @@ body {
                             color: $grey;
                             .match-headline {
                                 padding-bottom: 5px;
+                                .league-name {
+                                    img {
+                                        width: 15px;
+                                        vertical-align: middle;
+                                        margin-right: 10px;
+                                    }
+                                }
                                 .match-date {
                                     float: right;
                                     font-size: 11px;
@@ -408,6 +415,129 @@ body {
                                 }
                             }
                         }
+                    }
+                }
+            }
+            .calendar-page {
+                padding: 5px;
+                .calendar-page-headline {
+                    h4 {
+                        color: $basic;
+                        width: 220px;
+                        display: inline-block;
+                        i {
+                            font-size: 22px;
+                            margin-right: 10px;
+                        }
+                    }
+                    .view-box {
+                        float: right;
+                        margin-top: 10px;
+                        width: 71px;
+                        a {
+                            font-size: 18px;
+                            border: 1px solid $grey;
+                            padding: 6px;
+                            margin: 0;
+                        }
+                    }
+                }
+                .calendar-content {
+                    display: none;
+                    opacity: 0;
+                    &.show {
+                        display: block;
+                        opacity: 1;
+                    }
+                    .calendar-header {
+                        width: 100%;
+                        text-align: center;
+                        color: $basic;
+                        padding: 3px 0 3px 0;
+                        @include borderBasic();
+                        border-top: 3px solid $yel;
+                        i {
+                            line-height: 30px;
+                            width: 30px;
+                            font-size: 20px;
+                            cursor: pointer;
+                            background-color: rgba(0, 0, 0, 0.3);
+                            @include border-radius(5px);
+                            vertical-align: middle;
+                        }
+                        span {
+                            line-height: 30px;
+                            margin: 0 10px 0 10px;
+                            width: 120px;
+                            display: inline-block;
+                        }
+                    }
+                    table {
+                        width: 100%;
+                        .week {
+                            background-color: $basic;
+                            .day {
+                                width: calc(100% / 7);
+                                position: relative;
+                                height: 50px;
+                                text-align: center;
+                                border: 2px solid $black;
+                                text-align: center;
+                                @include border-radius(10px);
+                                &.match {
+                                    background-image: url("../image/triangle-red.png");
+                                    background-size: 50px;
+                                    background-repeat: no-repeat;
+                                    background-position: top left;
+                                    span {
+                                        color: $basic;
+                                    }
+                                }
+                                &.different-month {
+                                    opacity: 0.6;
+                                    background-color: darkgray;
+                                    span {
+                                        color: $basic;
+                                    }
+                                }
+                                span {
+                                    position: absolute;
+                                    top: 2px;
+                                    left: 2px;
+                                    float: left;
+                                    color: $grey;
+                                    width: 100%;
+                                    text-align: left;
+                                }
+                                img {
+                                    width: 35px;
+                                    float: right;
+                                }
+                            }
+                            &.names {
+                                width: 100%;
+                                height: 25px;
+                                line-height: 25px;
+                                color: $basic;
+                                .day {
+                                    padding: 2px;
+                                    height: 25px;
+                                    line-height: 25px;
+                                    background-color: $red;
+                                    border-bottom: 3px solid $black;
+                                    @include border-radius(10px);
+                                    margin-left: 2px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .calendar-list-content {
+                    display: none;
+                    opacity: 0;
+                    &.show {
+                        display: block;
+                        opacity: 1;
                     }
                 }
             }

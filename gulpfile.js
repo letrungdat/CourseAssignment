@@ -40,6 +40,7 @@ gulp.task('serve', [], function () {
     gulp.watch(['*.html'], reload);
     gulp.watch(['js/*.js'], reload);
     gulp.watch(['css/*.css'], reload);
+    gulp.watch(['template/*.html'], reload);
 });
 
 // Lint Task
