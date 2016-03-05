@@ -33,7 +33,7 @@
     <div class="calendar-list-content" id="list-view">
         <article class="home-calendar">
             <div class="home-calendar-tittle">
-                <i class="fa fa-calendar"></i><span>Manchester United calendar</span>
+                <i class="fa fa-calendar"></i><span>{{teamName}} calendar</span>
             </div>
             <ul>
                 <li ng-repeat="match in teamCalendars">
@@ -47,22 +47,22 @@
                         </div>
                         <div class="match-team-logo">
                             <div ng-if="match.venue">
-                                <img class="team-logo" src="image/team/manu-logo.png" />
+                                <img class="team-logo" src="{{pageIcon}}" />
                                 <img class="team-logo" src="{{match.teamlogo}}" />
                             </div>
                             <div ng-if="!match.venue">
                                 <img class="team-logo" src="{{match.teamlogo}}" />
-                                <img class="team-logo" src="image/team/manu-logo.png" />
+                                <img class="team-logo" src="{{pageIcon}}" />
                             </div>
                         </div>
                         <div class="match-team">
                             <div ng-if="match.venue">
-                                <span class="team-name">Manchester United</span>
+                                <span class="team-name">{{teamName}}</span>
                                 <span class="team-name">{{match.team}}</span>
                             </div>
                             <div ng-if="!match.venue">
                                 <span class="team-name">{{match.team}}</span>
-                                <span class="team-name">Manchester United</span>
+                                <span class="team-name">{{teamName}}</span>
                             </div>
                         </div>
                     </a>

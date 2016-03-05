@@ -22,6 +22,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         });
 		}]);
 app.controller('MyController', ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
+    $scope.teamName="Manchester United";
+    $scope.pageIcon="image/team/manu-logo.png";
+    $scope.leagueLogo="image/Premier_League_logo.svg";
+    $scope.leagueName="Barclays Preimer League";
     $scope.page = {};
     $scope.page.title = "";
     $scope.menuClick = function () {
@@ -30,19 +34,19 @@ app.controller('MyController', ['$scope', '$firebaseArray', function ($scope, $f
 	    }]);
 app.controller('homeController', ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
     var ref = new Firebase("https://cscassignment.firebaseio.com/");
-    $scope.page.title = "HOME";
+    $scope.page.title = "Home";
     $scope.news = $firebaseArray(ref.child('news'));
 $scope.teamCalendars = $firebaseArray(ref.child('teamCalendar').orderByChild('date').startAt(moment().format('DD/MM/YYYY')).limit(3));
 	    }]);
 app.controller('playerController', ['$scope', '$firebaseArray', '$routeParams', function ($scope, $firebaseArray, $routeParams) {
-    $scope.page.title = "PLAYER DETAIL";
+    $scope.page.title = "Player Detail";
     var ref = new Firebase("https://cscassignment.firebaseio.com/");
     var number = $routeParams.num;
     $scope.players = $firebaseArray(ref.child('teamMembers').orderByChild('number').equalTo(parseInt(number)));
 	    }]);
 app.controller('teamController', ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
     var ref = new Firebase("https://cscassignment.firebaseio.com/");
-    $scope.page.title = "SQUAD";
+    $scope.page.title = "Squad";
     $scope.goalkeepers = $firebaseArray(ref.child('teamMembers').orderByChild('type').equalTo('G'));
     $scope.defenders = $firebaseArray(ref.child('teamMembers').orderByChild('type').equalTo('D'));
     $scope.midfielders = $firebaseArray(ref.child('teamMembers').orderByChild('type').equalTo('M'));
