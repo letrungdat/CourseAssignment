@@ -1,12 +1,15 @@
 <div class="calendar-page">
     <div class="calendar-page-headline">
-        <h4><i class="fa fa-calendar"></i>ManUnited Calendar</h4>
+        <h4><i class="fa fa-calendar"></i>Calendar</h4>
         <div class="view-box">
             <a href="" class="calendar-btn" ng-click="changeView('calendar')"><i class="fa fa-calendar"></i></a>
             <a href="" class="calendar-list-btn" ng-click="changeView('list')"><i class="fa fa-list"></i></a>
         </div>
     </div>
     <div class="calendar-content show" id="calendar-view">
+        <div class="calendar-explain">
+            <span class="home-title">Home</span><span class="away-title">Away</span>
+        </div>
         <div class="calendar-header">
             <i class="fa fa-angle-left" ng-click="previous()"></i>
             <span>{{month.format("MMMM, YYYY")}}</span>
@@ -23,7 +26,7 @@
                 <th class="day">Sat</th>
             </tr>
             <tr class="week" ng-repeat="week in weeks">
-                <td class="day" ng-class="{ today: day.isToday, match:day.haveMatch, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }" ng-click="select(day)" ng-repeat="day in week.days">
+                <td class="day" ng-class="{ today: day.isToday, match:day.haveMatch, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected),'home-match':day.match.venue }" ng-click="select(day)" ng-repeat="day in week.days">
                     <span>{{day.number}}</span>
                     <img ng-if="day.haveMatch" src="{{day.match.teamlogo}}" />
                 </td>
@@ -32,9 +35,6 @@
     </div>
     <div class="calendar-list-content" id="list-view">
         <article class="home-calendar">
-            <div class="home-calendar-tittle">
-                <i class="fa fa-calendar"></i><span>{{teamName}} calendar</span>
-            </div>
             <ul>
                 <li ng-repeat="match in teamCalendars">
                     <a href="#">

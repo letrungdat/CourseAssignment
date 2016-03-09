@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Gotham-Medium;
+  src: url(../font/gotham-medium.woff); }
+
 body {
   padding: 0;
   margin: 0;
@@ -16,7 +20,7 @@ body {
   body header {
     color: #FFF;
     background: #d4001f;
-    height: 50px;
+    height: 40px;
     padding: 0 !important;
     position: fixed !important;
     z-index: 10; }
@@ -24,8 +28,9 @@ body {
       float: left;
       display: inline-block;
       font-size: 30px;
-      height: 50px;
-      width: 50px;
+      line-height: 40px;
+      height: 40px;
+      width: 40px;
       background: transparent;
       border: none;
       color: #FFF;
@@ -37,15 +42,15 @@ body {
       font-size: 20px;
       font-weight: bold;
       height: 40px;
-      margin: 10px 50px 0 50px;
+      margin: 5px 50px 0 50px;
       color: #FCD800; }
     body header img {
       float: right;
       display: inline;
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
       vertical-align: top;
-      margin-top: 5px;
+      margin-top: 2px;
       margin-right: 10px; }
   body #container.open {
     left: 0; }
@@ -59,7 +64,7 @@ body {
     position: relative;
     width: calc(100% + 200px) !important;
     padding: 0 !important;
-    margin-top: 50px;
+    margin-top: 40px;
     left: -200px; }
     body .main .nav-left {
       position: fixed;
@@ -115,7 +120,7 @@ body {
           padding-bottom: 5px;
           margin: 0; }
           body .main .content .home-calendar ul li {
-            border-top: 1px solid #555555;
+            border-top: 1px solid #CCC;
             padding: 5px;
             padding-bottom: 10px; }
             body .main .content .home-calendar ul li:first-child {
@@ -185,6 +190,7 @@ body {
         -o-flex-flow: wrap;
         flex-flow: wrap; }
         body .main .content .squad ul li {
+          position: relative;
           background: #d4001f;
           flex-basis: 45%;
           width: 45%;
@@ -196,12 +202,12 @@ body {
           body .main .content .squad ul li a img {
             width: 100%; }
           body .main .content .squad ul li a div {
-            background: #d4001f;
+            background: rgba(119, 119, 119, 0.85);
+            position: absolute;
             width: 100%;
             bottom: 0;
             color: #FCD800;
-            display: flex;
-            border-top: 1px solid #555555; }
+            display: flex; }
             body .main .content .squad ul li a div .player-number {
               width: 40px;
               display: inline-block;
@@ -270,32 +276,46 @@ body {
           body .main .content .table-page table tr {
             background: #FFF; }
             body .main .content .table-page table tr td {
-              width: 20px; }
-              body .main .content .table-page table tr td:nth-child(3) {
+              width: 10px; }
+              body .main .content .table-page table tr td:nth-child(2) {
                 width: auto;
                 text-align: left;
                 padding-left: 5px; }
-              body .main .content .table-page table tr td:nth-child(2) {
-                text-align: right;
-                width: 30px; }
+            body .main .content .table-page table tr:nth-child(2) {
+              border-top: none; }
           body .main .content .table-page table thead {
-            border: 1px solid #555555; }
-            body .main .content .table-page table thead tr td {
-              padding: 5px;
-              font-weight: bold; }
+            border: 1px solid #555555;
+            border-bottom: none; }
+            body .main .content .table-page table thead tr {
+              background-color: #d4001f;
+              border-bottom: none; }
+              body .main .content .table-page table thead tr td {
+                padding: 5px;
+                font-weight: bold;
+                color: #FFF; }
           body .main .content .table-page table tbody {
             border: 1px solid #555555; }
             body .main .content .table-page table tbody .mu-team {
               background: #E8E8E8; }
             body .main .content .table-page table tbody tr {
               border-bottom: 1px solid #8c8c8c; }
-              body .main .content .table-page table tbody tr td {
-                padding-top: 5px;
-                padding-bottom: 5px; }
-                body .main .content .table-page table tbody tr td:nth-child(4) {
-                  font-weight: bold; }
-                body .main .content .table-page table tbody tr td img {
-                  width: 100%; }
+              body .main .content .table-page table tbody tr td:nth-child(1) {
+                background-position: center;
+                background-size: 60px;
+                font-family: Gotham-Medium, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                text-shadow: -2px -2px 0 #32608a, 2px -2px 0 #32608a, -2px 2px 0 #32608a, 2px 2px 0 #32608a, -2px 0 0 #32608a, 0 -2px 0 #32608a, 2px 0 0 #32608a, 0 2px 0 #32608a;
+                color: #FFF; }
+                body .main .content .table-page table tbody tr td:nth-child(1) span {
+                  display: block;
+                  line-height: 40px;
+                  width: 40px;
+                  background-color: rgba(0, 0, 0, 0.3); }
+              body .main .content .table-page table tbody tr td:nth-child(3) {
+                font-weight: bold; }
+              body .main .content .table-page table tbody tr td img {
+                width: 100%; }
       body .main .content .calendar-page {
         padding: 5px; }
         body .main .content .calendar-page .calendar-page-headline h4 {
@@ -311,7 +331,6 @@ body {
           width: 71px; }
           body .main .content .calendar-page .calendar-page-headline .view-box a {
             font-size: 18px;
-            border: 1px solid #8c8c8c;
             padding: 6px;
             margin: 0; }
         body .main .content .calendar-page .calendar-content {
@@ -320,6 +339,50 @@ body {
           body .main .content .calendar-page .calendar-content.show {
             display: block;
             opacity: 1; }
+          body .main .content .calendar-page .calendar-content .calendar-explain {
+            text-align: center;
+            color: #8c8c8c;
+            padding-left: 5px;
+            line-height: 30px;
+            font-weight: bold; }
+            body .main .content .calendar-page .calendar-content .calendar-explain .home-title {
+              margin-right: 30px; }
+              body .main .content .calendar-page .calendar-content .calendar-explain .home-title::before {
+                content: "";
+                height: 30px;
+                width: 30px;
+                background-color: #FFF;
+                background-image: url("../image/triangle-red.png");
+                background-size: 30px;
+                background-repeat: no-repeat;
+                background-position: top left;
+                padding-left: 30px;
+                margin-right: 10px;
+                padding-top: 14px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+                border-radius: 5px;
+                vertical-align: text-top; }
+            body .main .content .calendar-page .calendar-content .calendar-explain .away-title::before {
+              content: "";
+              height: 30px;
+              width: 30px;
+              background-color: #FFF;
+              background-image: url("../image/triangle-yel.png");
+              background-size: 30px;
+              background-repeat: no-repeat;
+              background-position: top left;
+              padding-left: 30px;
+              margin-right: 10px;
+              padding-top: 14px;
+              -webkit-border-radius: 5px;
+              -moz-border-radius: 5px;
+              -ms-border-radius: 5px;
+              -o-border-radius: 5px;
+              border-radius: 5px;
+              vertical-align: text-top; }
           body .main .content .calendar-page .calendar-content .calendar-header {
             width: 100%;
             text-align: center;
@@ -332,7 +395,6 @@ body {
               width: 30px;
               font-size: 20px;
               cursor: pointer;
-              background-color: rgba(0, 0, 0, 0.3);
               -webkit-border-radius: 5px;
               -moz-border-radius: 5px;
               -ms-border-radius: 5px;
@@ -360,8 +422,15 @@ body {
                 -ms-border-radius: 10px;
                 -o-border-radius: 10px;
                 border-radius: 10px; }
-                body .main .content .calendar-page .calendar-content table .week .day.match {
+                body .main .content .calendar-page .calendar-content table .week .day.match.home-match {
                   background-image: url("../image/triangle-red.png");
+                  background-size: 50px;
+                  background-repeat: no-repeat;
+                  background-position: top left; }
+                  body .main .content .calendar-page .calendar-content table .week .day.match.home-match span {
+                    color: #FFF; }
+                body .main .content .calendar-page .calendar-content table .week .day.match {
+                  background-image: url("../image/triangle-yel.png");
                   background-size: 50px;
                   background-repeat: no-repeat;
                   background-position: top left; }

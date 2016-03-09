@@ -1,13 +1,16 @@
 <img class='head-img' src="image/headImage.jpg" />
 <article class="home-calendar">
     <div class="home-calendar-tittle">
-        <i class="fa fa-calendar"></i><span>{{teamName}} calendar</span>
+        <i class="fa fa-calendar"></i><span>Calendar</span>
     </div>
     <ul>
         <li ng-repeat="match in teamCalendars">
             <a href="#">
                 <div class="match-headline">
-                    <span class="league-name">{{match.league}}</span>
+                    <span class="league-name">
+                                    <img ng-if="match.league == 'Barclays Premier League'" src="image/Premier_League_logo.svg"/>
+                                    <img ng-if="match.league == 'Europa League'" src="image/europa_league_logo.png"/>
+                                    <img ng-if="match.league == 'FA Cup'" src="image/facup-logo.png"/>{{match.league}}</span>
                     <span class="match-date">{{match.date}} - {{match.time}}</span>
                 </div>
                 <div class="match-team-logo">
