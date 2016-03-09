@@ -4,6 +4,7 @@ $red2:#EF6A6A;
 $black:#242323;
 $yel:#FCD800;
 $grey:#8c8c8c;
+$blue:#32608a;
 $borderCl:#555555;
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius;
@@ -33,11 +34,21 @@ $borderCl:#555555;
     flex-flow: wrap;
 }
 
+@mixin text-shadow($color) {
+    text-shadow: -2px -2px 0 $color, 2px -2px 0 $color, -2px 2px 0 $color, 2px 2px 0 $color, -2px 0 0 $color, 0 -2px 0 $color, 2px 0 0 $color, 0 2px 0 $color;
+}
+
+@font-face {
+    font-family: Gotham-Medium;
+    src: url(../font/gotham-medium.woff);
+}
+
 body {
     padding: 0;
     margin: 0;
     color: $basic;
     overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
     ul {
         list-style: none;
     }
@@ -54,18 +65,20 @@ body {
     header {
         color: $basic;
         background: $red;
-        height: 50px;
-        @include borderBasic();
+        height: 40px;
+        padding: 0 !important;
+        position: fixed !important;
+        z-index: 10;
         button {
             float: left;
             display: inline-block;
             font-size: 30px;
-            height: 50px;
-            width: 50px;
+            line-height: 40px;
+            height: 40px;
+            width: 40px;
             background: transparent;
             border: none;
-            color: $black;
-            border-right: 1px solid $borderCl;
+            color: $basic;
             outline: none;
         }
         div {
@@ -75,16 +88,16 @@ body {
             font-size: 20px;
             font-weight: bold;
             height: 40px;
-            margin: 10px 50px 0 50px;
+            margin: 5px 50px 0 50px;
             color: $yel;
         }
         img {
             float: right;
             display: inline;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             vertical-align: top;
-            margin-top: 5px;
+            margin-top: 2px;
             margin-right: 10px;
         }
     }
@@ -92,49 +105,40 @@ body {
         left: 0;
     }
     .main {
-        @include transition(0.5s);
+        @include transition(0.3s);
         display: block;
         position: relative;
-        width: calc(100% + 250px) !important;
+        width: calc(100% + 200px) !important;
         padding: 0 !important;
-        margin: 0 !important;
-        left: -250px;
+        margin-top: 40px;
+        left: -200px;
         .nav-left {
-            position: absolute;
+            position: fixed;
             z-index: 1;
-            background: $black;
-            width: 250px;
+            background: $red;
+            width: 200px;
             display: block;
+            height: 100%;
             nav {
                 a {
-                    text-align: center;
+                    text-align: left;
                     padding: 5px;
                     width: 100%;
-                    height: 50px;
                     display: block;
-                    @include borderBasic();
-                    border-bottom: none;
-                    &:last-child {
-                        border-bottom: 1px solid $borderCl;
-                    }
-                    &:first-child {
-                        border-top: none;
-                    }
+                    margin-top: 5px;
                     i {
                         float: left;
-                        margin-left: 20px;
-                        font-size: 35px;
-                        color: $borderCl;
+                        margin-left: 10px;
+                        font-size: 20px;
+                        color: $basic;
                     }
                     span {
-                        margin-top: 10px;
                         height: 20px;
                         font-size: 14px;
                         display: inline-block;
-                        width: 170px;
                         text-align: left;
-                        padding-left: 25px;
-                        color: $borderCl;
+                        padding-left: 10px;
+                        color: $basic;
                     }
                 }
             }
@@ -143,9 +147,9 @@ body {
             position: absolute;
             z-index: 2;
             background: $black;
-            width: calc(100% - 250px);
+            width: calc(100% - 200px);
             display: block;
-            left: 250px;
+            left: 200px;
             .head-img {
                 width: 100%;
             }
@@ -171,7 +175,7 @@ body {
                     padding-bottom: 5px;
                     margin: 0;
                     li {
-                        border-top: 1px solid $borderCl;
+                        border-top: 1px solid #CCC;
                         padding: 5px;
                         padding-bottom: 10px;
                         &:first-child {
@@ -265,6 +269,7 @@ body {
                     display: flex;
                     @include flex-flow();
                     li {
+                        position: relative;
                         background: $red;
                         flex-basis: 45%;
                         width: 45%;
@@ -278,12 +283,12 @@ body {
                                 width: 100%;
                             }
                             div {
-                                background: $red;
+                                background: rgba(119, 119, 119, 0.85);
+                                position: absolute;
                                 width: 100%;
                                 bottom: 0;
                                 color: $yel;
                                 display: flex;
-                                border-top: 1px solid $borderCl;
                                 .player-number {
                                     width: 40px;
                                     display: inline-block;
@@ -332,8 +337,7 @@ body {
                             .info-col-left {
                                 width: 120px;
                                 color: $yel;
-                                padding: 2px;
-                                padding-left: 0.5em;
+                                padding-left: 1em;
                                 font-size: 0.9em;
                             }
                             .info-col-right {
@@ -344,7 +348,7 @@ body {
                 }
                 .player-text {
                     background: $basic;
-                    padding: 5px;
+                    padding: 5px 10px 5px 10px;
                     .player-text-title {
                         font-weight: bold;
                     }
@@ -376,24 +380,27 @@ body {
                     tr {
                         background: $basic;
                         td {
-                            width: 20px;
-                            &:nth-child(3) {
+                            width: 10px;
+                            &:nth-child(2) {
                                 width: auto;
                                 text-align: left;
                                 padding-left: 5px;
                             }
-                            &:nth-child(2) {
-                                text-align: right;
-                                width: 30px;
-                            }
+                        }
+                        &:nth-child(2) {
+                            border-top: none;
                         }
                     }
                     thead {
                         @include borderBasic();
+                        border-bottom: none;
                         tr {
+                            background-color: $red;
+                            border-bottom: none;
                             td {
                                 padding: 5px;
                                 font-weight: bold;
+                                color: $basic;
                             }
                         }
                     }
@@ -405,11 +412,24 @@ body {
                         tr {
                             border-bottom: 1px solid $grey;
                             td {
-                                &:nth-child(4) {
+                                &:nth-child(1) {
+                                    background-position: center;
+                                    background-size: 60px;
+                                    font-family: Gotham-Medium, sans-serif;
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                    @include text-shadow($blue);
+                                    color: $basic;
+                                    span {
+                                        display: block;
+                                        line-height: 40px;
+                                        width: 40px;
+                                        background-color: rgba(0, 0, 0, 0.3);
+                                    }
+                                }
+                                &:nth-child(3) {
                                     font-weight: bold;
                                 }
-                                padding-top: 5px;
-                                padding-bottom: 5px;
                                 img {
                                     width: 100%;
                                 }
@@ -436,7 +456,6 @@ body {
                         width: 71px;
                         a {
                             font-size: 18px;
-                            border: 1px solid $grey;
                             padding: 6px;
                             margin: 0;
                         }
@@ -448,6 +467,48 @@ body {
                     &.show {
                         display: block;
                         opacity: 1;
+                    }
+                    .calendar-explain {
+                        text-align: center;
+                        color: $grey;
+                        padding-left: 5px;
+                        line-height: 30px;
+                        font-weight: bold;
+                        .home-title {
+                            margin-right: 30px;
+                            &::before {
+                                content: "";
+                                height: 30px;
+                                width: 30px;
+                                background-color: $basic;
+                                background-image: url("../image/triangle-red.png");
+                                background-size: 30px;
+                                background-repeat: no-repeat;
+                                background-position: top left;
+                                padding-left: 30px;
+                                margin-right: 10px;
+                                padding-top: 14px;
+                                @include border-radius(5px);
+                                vertical-align: text-top;
+                            }
+                        }
+                        .away-title {
+                            &::before {
+                                content: "";
+                                height: 30px;
+                                width: 30px;
+                                background-color: $basic;
+                                background-image: url("../image/triangle-yel.png");
+                                background-size: 30px;
+                                background-repeat: no-repeat;
+                                background-position: top left;
+                                padding-left: 30px;
+                                margin-right: 10px;
+                                padding-top: 14px;
+                                @include border-radius(5px);
+                                vertical-align: text-top;
+                            }
+                        }
                     }
                     .calendar-header {
                         width: 100%;
@@ -461,7 +522,6 @@ body {
                             width: 30px;
                             font-size: 20px;
                             cursor: pointer;
-                            background-color: rgba(0, 0, 0, 0.3);
                             @include border-radius(5px);
                             vertical-align: middle;
                         }
@@ -485,7 +545,18 @@ body {
                                 text-align: center;
                                 @include border-radius(10px);
                                 &.match {
-                                    background-image: url("../image/triangle-red.png");
+                                    &.home-match {
+                                        background-image: url("../image/triangle-red.png");
+                                        background-size: 50px;
+                                        background-repeat: no-repeat;
+                                        background-position: top left;
+                                        span {
+                                            color: $basic;
+                                        }
+                                    }
+                                }
+                                &.match {
+                                    background-image: url("../image/triangle-yel.png");
                                     background-size: 50px;
                                     background-repeat: no-repeat;
                                     background-position: top left;
@@ -538,6 +609,87 @@ body {
                     &.show {
                         display: block;
                         opacity: 1;
+                    }
+                }
+            }
+            .footer {
+                background-color: #E6E6E6;
+                padding: 10px;
+                padding-top: 3px;
+                hr {
+                    margin: 5px 0 5px 0;
+                }
+                .social {
+                    margin: 0;
+                    padding: 0;
+                    text-align: center;
+                    ul {
+                        margin: 0;
+                        padding: 5px;
+                        li {
+                            margin: 5px;
+                            list-style: none outside none;
+                            display: inline-block;
+                        }
+                    }
+                    i {
+                        width: 40px;
+                        height: 40px;
+                        color: #FFF;
+                        background-color: #909AA0;
+                        font-size: 22px;
+                        text-align: center;
+                        padding-top: 12px;
+                        @include border-radius(50%);
+                        @include transition(0.3s);
+                        &:hover {
+                            color: #FFF;
+                            text-decoration: none;
+                            transition: all ease 0.3s;
+                            -moz-transition: all ease 0.3s;
+                            -webkit-transition: all ease 0.3s;
+                            -o-transition: all ease 0.3s;
+                            -ms-transition: all ease 0.3s;
+                        }
+                    }
+                    .fa-facebook:hover {
+                        &:hover {
+                            background: #4060A5;
+                        }
+                    }
+                    .fa-twitter:hover {
+                        /* round twitter icon*/
+                        background: #00ABE3;
+                    }
+                    .fa-google-plus:hover {
+                        /* round google plus icon*/
+                        background: #e64522;
+                    }
+                    .fa-instagram:hover {
+                        /* round instagram icon*/
+                        background: #375989;
+                    }
+                    .fa-skype:hover {
+                        /* round skype icon*/
+                        background: #00C6FF;
+                    }
+                    .fa-youtube:hover {
+                        /* round youtube icon*/
+                        background: #FF1F25;
+                    }
+                    .fa-youtube-play:hover {
+                        /* round youtube play button icon*/
+                        background: #DF192A;
+                    }
+                }
+                .partners {
+                    text-align: center;
+                    overflow: hidden;
+                    div {
+                        img {
+                            margin: 0 auto;
+                            float: none;
+                        }
                     }
                 }
             }

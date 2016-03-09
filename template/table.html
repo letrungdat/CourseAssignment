@@ -1,11 +1,10 @@
 <div class="table-page">
-                <img src="../image/Premier_League_logo.svg"/>
-                <h4>Barclays Priemer League</h4>
+                <img src="{{leagueLogo}}"/>
+                <h4>{{leagueName}}</h4>
                 <table>
                     <thead>
                         <tr>
                             <td title="Position">Pos</td>
-                            <td></td>
                             <td>Team</td>
                             <td title="Points">Pts</td>
                             <td title="Play">P</td>
@@ -17,8 +16,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="team in table" ng-class="team.name == 'Manchester United' ? 'mu-team':''">
-                            <td>{{team.position}}</td>
-                            <td><img src="{{team.logo}}"/></td>
+                            <td style="background-image:url('{{team.logo}}')"><span>{{team.position}}</span></td>
                             <td>{{team.name}}</td>
                             <td>{{team.points}}</td>
                             <td>{{team.play}}</td>
