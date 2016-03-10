@@ -1,21 +1,9 @@
 describe('gulp-jasmine-browser', function () {
     var scope,
-        controller;
+        controller,
+        service;
     beforeEach(function () {
         module('myApp');
-    });
-//    it('check match', function () {
-//        var matchs = {};
-//        var ref = new Firebase("https://cscassignment.firebaseio.com/teamCalendar");
-//        ref.on("value", function (snapshot) {
-//            matchs = snapshot.val();
-//        });
-//        var date = moment("28/02/2016", "DD/MM/YYYY");
-//        expect(checkMatch(date, matchs)).toBe(true);
-//    });
-    it('check true', function () {
-        var date = true;
-        expect(date).toBe(true);
     });
     describe('MyController', function () {
         beforeEach(inject(function ($rootScope, $controller) {
@@ -26,6 +14,27 @@ describe('gulp-jasmine-browser', function () {
         }));
         it('sets the name', function () {
             expect(scope.teamName).toBe('Manchester United');
+            expect(scope.pageIcon).toBe('image/team/manu-logo.png');
+            expect(scope.leagueLogo).toBe('image/Premier_League_logo.svg');
+            expect(scope.leagueName).toBe('Barclays Preimer League');
+        });
+    });
+    describe('MyService', function () {
+        it('should contain a searchService',
+            inject(function (mainService) {
+                expect(mainService.convertToArray({
+                    'dat': 1,
+                    'da': 2
+                })).toBe([1, 2]);
+            }));
+        beforeEach(inject(function ($service) {
+            service = $service('mainService');
+        }));
+        it('convert', function () {
+            expect(service.convertToArray({
+                'dat': 1,
+                'da': 2
+            })).toBe([1, 2]);
         });
     });
 });

@@ -220,14 +220,34 @@ body {
                 }
             }
             .home-news {
+                .carousel-box {
+                    position: relative;
+                    .item {
+                        position: relative;
+                        img {
+                            width: 100%;
+                            display: block;
+                        }
+                        .title {
+                            display: block;
+                            width: 100%;
+                            line-height: 60px;
+                            color: $black;
+                            font-size: 17px;
+                            padding-left: 10px;
+                            background-color: rgba(255, 255, 255, 0.7);
+                        }
+                    }
+                }
                 h4 {
                     color: $basic;
                     padding-left: 5px;
                     margin-top: 20px;
                 }
                 ul {
-                    padding: 5px;
-                    ;
+                    padding: 10px;
+                    padding-bottom: 0;
+                    margin-bottom: 0;
                     li {
                         background: $basic;
                         @include borderBasic();
@@ -251,6 +271,55 @@ body {
                                     text-transform: uppercase;
                                     color: $black;
                                     font-weight: bolder;
+                                }
+                            }
+                        }
+                    }
+                }
+                .showMoreBtn {
+                    width: 90%;
+                    margin: auto;
+                    display: block;
+                    margin-bottom: 20px;
+                    border-radius: 0px;
+                }
+            }
+            .home-team {
+                h4 {
+                    color: $basic;
+                    padding-left: 5px;
+                    margin-top: 20px;
+                    text-transform: uppercase;
+                }
+                .carousel-box {
+                    padding: 30px;
+                    .player-box {
+                        border-top: 3px solid $yel;
+                        a {
+                            img {
+                                width: 100%;
+                            }
+                            div {
+                                background: rgba(119, 119, 119, 0.85);
+                                position: absolute;
+                                width: 100%;
+                                bottom: 0;
+                                color: $yel;
+                                display: flex;
+                                .player-number {
+                                    width: 40px;
+                                    display: inline-block;
+                                    text-align: center;
+                                    line-height: 40px;
+                                    font-size: 25px;
+                                    border-right: 1px solid $borderCl;
+                                }
+                                .player-name {
+                                    width: calc(100% - 44px);
+                                    display: inline-block;
+                                    line-height: 20px;
+                                    text-transform: uppercase;
+                                    text-align: center;
                                 }
                             }
                         }

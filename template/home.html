@@ -53,4 +53,18 @@
     </ul>
 </article>
 <article class="home-team">
+    <h4>Our team</h4>
+    <div class="carousel-box" ng-controller="carouselCtrl">
+        <data-owl-carousel class="owl-carousel" data-options="{navigation: false, pagination: true, itemsMobile : [380,1]}">
+            <div owl-carousel-item="" ng-repeat="player in players" class="item player-box">
+                <a href="#player/{{player.number}}">
+                    <img class="player-img" src="{{player.image}}" />
+                    <div>
+                        <span class="player-number">{{player.number}}</span>
+                        <span class="player-name">{{player.name}}</span>
+                    </div>
+                </a>
+            </div>
+        </data-owl-carousel>
+    </div>
 </article>

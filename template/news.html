@@ -1,0 +1,24 @@
+<article class="home-news">
+    <div class="carousel-box" ng-controller="carouselCtrl">
+        <data-owl-carousel class="owl-carousel" data-options="{navigation: false, pagination: true,autoPlay : 3000, itemsMobile : [380,1]}">
+            <div owl-carousel-item="" ng-repeat="item in items2" class="item">
+                <img src="{{item.image}}" />
+                <div class="title">{{item.title}}</div>
+            </div>
+        </data-owl-carousel>
+    </div>
+    <h4>News</h4>
+    <ul>
+        <li ng-repeat="new in news">
+            <a href="">
+                <img class="new-img" src="{{new.image}}" />
+                <div class="new-content">
+                    <p class="new-type">{{new.type}}</p>
+                    <p class="new-title"> {{new.title}}</p>
+                    <p class="new-detail">{{new.content}}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <button class="showMoreBtn btn-warning btn btn-lg" ng-click="showMore()"><i class="fa fa-caret-square-o-down"></i> Show more news</button>
+</article>

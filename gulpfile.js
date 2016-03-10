@@ -6,12 +6,21 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var browserSync = require('browser-sync');
 var connect = require('gulp-connect');
+var jasmineBrowser = require('gulp-jasmine-browser');
+var watch = require('gulp-watch');
 var reload = browserSync.reload;
-
-gulp.task('webserver', function() {
-  connect.server({
-    livereload: true
-  });
+gulp.task('test', function () {
+    return gulp.src(['bower_components/angular/angular.min.js','bower_components/angular-mocks/angular-mocks.js','spec/*.js','dist/all.js'])
+        .pipe(watch(['bower_components/angular/angular.min.js','bower_components/angular-mocks/angular-mocks.js','spec/*.js','dist/all.js']))
+        .pipe(jasmineBrowser.specRunner())
+        .pipe(jasmineBrowser.server({
+            port: 8888
+        }));
+});
+gulp.task('webserver', function () {
+    connect.server({
+        livereload: true
+    });
 });
 gulp.task('lint', function () {
     return gulp.src('js/*.js')
@@ -74,4 +83,4 @@ gulp.task('watch', function () {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch','serve']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'serve']);

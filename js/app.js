@@ -1,9 +1,13 @@
-var app = angular.module('myApp', ['firebase', 'ngRoute','ngAnimate','ui.bootstrap']);
+var app = angular.module('myApp', ['firebase', 'ngRoute', 'ngAnimate']);
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'template/home.html',
             controller: 'homeController'
+        })
+        .when('/news', {
+            templateUrl: 'template/news.html',
+            controller: 'newsController'
         })
         .when('/team', {
             templateUrl: 'template/team.html',
