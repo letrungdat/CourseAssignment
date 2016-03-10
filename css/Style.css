@@ -150,12 +150,29 @@ body {
                 body .main .content .home-calendar ul li a .match-team .team-name {
                   display: block;
                   font-weight: bold; }
+      body .main .content .home-news .carousel-box {
+        position: relative; }
+        body .main .content .home-news .carousel-box .item {
+          position: relative; }
+          body .main .content .home-news .carousel-box .item img {
+            width: 100%;
+            display: block; }
+          body .main .content .home-news .carousel-box .item .title {
+            display: block;
+            width: 100%;
+            line-height: 60px;
+            color: #242323;
+            font-size: 17px;
+            padding-left: 10px;
+            background-color: rgba(255, 255, 255, 0.7); }
       body .main .content .home-news h4 {
         color: #FFF;
         padding-left: 5px;
         margin-top: 20px; }
       body .main .content .home-news ul {
-        padding: 5px; }
+        padding: 10px;
+        padding-bottom: 0;
+        margin-bottom: 0; }
         body .main .content .home-news ul li {
           background: #FFF;
           border: 1px solid #555555;
@@ -176,6 +193,43 @@ body {
               text-transform: uppercase;
               color: #242323;
               font-weight: bolder; }
+      body .main .content .home-news .showMoreBtn {
+        width: 90%;
+        margin: auto;
+        display: block;
+        margin-bottom: 20px;
+        border-radius: 0px; }
+      body .main .content .home-team h4 {
+        color: #FFF;
+        padding-left: 5px;
+        margin-top: 20px;
+        text-transform: uppercase; }
+      body .main .content .home-team .carousel-box {
+        padding: 30px; }
+        body .main .content .home-team .carousel-box .player-box {
+          border-top: 3px solid #FCD800; }
+          body .main .content .home-team .carousel-box .player-box a img {
+            width: 100%; }
+          body .main .content .home-team .carousel-box .player-box a div {
+            background: rgba(119, 119, 119, 0.85);
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            color: #FCD800;
+            display: flex; }
+            body .main .content .home-team .carousel-box .player-box a div .player-number {
+              width: 40px;
+              display: inline-block;
+              text-align: center;
+              line-height: 40px;
+              font-size: 25px;
+              border-right: 1px solid #555555; }
+            body .main .content .home-team .carousel-box .player-box a div .player-name {
+              width: calc(100% - 44px);
+              display: inline-block;
+              line-height: 20px;
+              text-transform: uppercase;
+              text-align: center; }
       body .main .content .squad h3 {
         color: #FFF;
         padding-left: 5px;

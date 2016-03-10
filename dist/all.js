@@ -4,6 +4,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when('/', {
             templateUrl: 'template/home.html',
             controller: 'homeController'
+        }) 
+        .when('/news', {
+            templateUrl: 'template/news.html',
+            controller: 'newsController'
         })
         .when('/team', {
             templateUrl: 'template/team.html',
@@ -32,24 +36,71 @@ app.controller('MyController', ['$scope', '$firebaseArray', function ($scope, $f
         $('#container').toggleClass('open');
     };
 	    }]);
-app.controller('homeController', ['$scope', '$firebaseArray','$timeout', function ($scope, $firebaseArray,$timeout) {
-    var matchList={};
+app.controller('homeController', ['$scope', '$firebaseArray', '$timeout', 'mainService', function ($scope, $firebaseArray, $timeout, MService) {
+    var matchList = {};
     var ref = new Firebase("https://cscassignment.firebaseio.com/");
     $scope.page.title = "Home";
-    $scope.news = $firebaseArray(ref.child('news'));
-//    $scope.teamCalendars = $firebaseArray(ref.child('teamCalendar').orderByChild('date').startAt(moment().format('DD/MM/YYYY')).limitToFirst(3));
-     ref.child('teamCalendar').orderByChild('date').startAt(moment().format('DD/MM/YYYY')).limitToFirst(3).once('value', function (snapshot) {
+    $scope.news = $firebaseArray(ref.child('news').limitToFirst(5));
+    //    $scope.teamCalendars = $firebaseArray(ref.child('teamCalendar').orderByChild('date').startAt(moment().format('DD/MM/YYYY')).limitToFirst(3));
+    ref.child('teamCalendar').orderByChild('date').once('value', function (snapshot) {
         $timeout(function () {
             matchList = snapshot.val();
-            for(var match in matchList){
-                matchList[match].date=moment(matchList[match].date,"DD/MM/YYYY").format("MMM DD");
-                matchList[match].time=moment(matchList[match].time,"HH:mm").format("hh:mma");
+            for (var match in matchList) {
+                matchList[match].date = moment(matchList[match].date, "DD/MM/YYYY").format("MMM DD");
+                matchList[match].time = moment(matchList[match].time, "HH:mm").format("hh:mma");
             }
-            $scope.teamCalendars=matchList;
+            $scope.teamCalendars = MService.sortByDate(matchList).slice(0, 3);
         });
     });
-    $scope.players = $firebaseArray(ref.child('teamMembers').orderByChild('number'));
+    var playersList = {};
+    var arrayPlayers = [];
+    ref.child('teamMembers').once('value', function (snapshot) {
+        $timeout(function () {
+            playersList = snapshot.val();
+            arrayPlayers = MService.convertToArray(playersList);
+            $scope.players = arrayPlayers;
+        });
+    });
 	    }]);
+app.controller('newsController', ['$scope', '$firebaseArray', 'mainService', '$timeout', function ($scope, $firebaseArray, MService, $timeout) {
+    $scope.page.title = "News";
+    var newsList = {};
+    var array = [];
+    var newsArray = [];
+    var numItem = 4;
+    var current = 3;
+    var ref = new Firebase("https://cscassignment.firebaseio.com/");
+    //    $scope.news = $firebaseArray(ref.child('news'));
+    ref.child('news').once('value', function (snapshot) {
+        $timeout(function () {
+            newsList = snapshot.val();
+            array = MService.convertToArray(newsList);
+            for (i = 0; i < numItem; i++) {
+                newsArray.push(array[i]);
+            }
+        });
+    });
+    $scope.news = newsArray;
+    $scope.showMore = function () {
+        var currentLength = current + numItem;
+        if (current < array.length && currentLength < array.length) {
+            for (var t = current + 1; t < currentLength; t++) {
+                newsArray.push(array[t]);
+                current++;
+            }
+        } else {
+            if (current < array.length && currentLength > array.length) {
+                for (var j = current + 1; j < array.length; j++) {
+                    newsArray.push(array[j]);
+                    current++;
+                }
+                $('.showMoreBtn').addClass('hide');
+            } else {
+                $('.showMoreBtn').addClass('hide');
+            }
+        }
+    };
+}]);
 app.controller('playerController', ['$scope', '$firebaseArray', '$routeParams', function ($scope, $firebaseArray, $routeParams) {
 
     var ref = new Firebase("https://cscassignment.firebaseio.com/");
@@ -81,7 +132,7 @@ app.controller("calendarController", ['$scope', '$firebaseArray', 'mainService',
     var matchs = {};
     var matchList = {};
     var ref = new Firebase("https://cscassignment.firebaseio.com/teamCalendar");
-//    $scope.teamCalendars = $firebaseArray(ref.orderByChild('date').startAt(moment().format('DD/MM/YYYY')));
+    //    $scope.teamCalendars = $firebaseArray(ref.orderByChild('date').startAt(moment().format('DD/MM/YYYY')));
     $scope.day = moment().date;
     $scope.selected = MService._removeTime($scope.selected || moment());
     $scope.month = $scope.selected.clone();
@@ -95,14 +146,14 @@ app.controller("calendarController", ['$scope', '$firebaseArray', 'mainService',
         matchs = snapshot.val();
         MService._buildMonth($scope, start, $scope.month, matchs);
     });
-    ref.orderByChild('date').startAt(moment().format('DD/MM/YYYY')).once('value', function (snapshot) {
+    ref.orderByChild('date').once('value', function (snapshot) {
         $timeout(function () {
             matchList = snapshot.val();
-            for(var match in matchList){
-                matchList[match].date=moment(matchList[match].date,"DD/MM/YYYY").format("MMM DD");
-                matchList[match].time=moment(matchList[match].time,"HH:mm").format("hh:mma");
+            for (var match in matchList) {
+                matchList[match].date = moment(matchList[match].date, "DD/MM/YYYY").format("MMM DD");
+                matchList[match].time = moment(matchList[match].time, "HH:mm").format("hh:mma");
             }
-            $scope.teamCalendars=matchList;
+            $scope.teamCalendars = MService.sortByDate(matchList);
         });
     });
     $scope.changeView = function (type) {
@@ -121,6 +172,50 @@ app.controller("calendarController", ['$scope', '$firebaseArray', 'mainService',
         $scope.month.month($scope.month.month() - 1);
         MService._buildMonth($scope, previous, $scope.month, matchs);
     };
+}]);
+app.controller('carouselCtrl', ['$scope', '$firebaseArray', 'mainService', '$timeout', function ($scope, $firebaseArray, MService, $timeout) {
+    var newsList = {};
+    var arrayNews = [];
+    var ref = new Firebase("https://cscassignment.firebaseio.com/");
+    ref.child('news').once('value', function (snapshot) {
+        $timeout(function () {
+            newsList = snapshot.val();
+            arrayNews = MService.convertToArray(newsList);
+            $scope.items2 = arrayNews;
+        });
+    });
+
+    }]);
+app.directive("owlCarousel", function () {
+        return {
+            restrict: 'E',
+            transclude: false,
+            link: function (scope) {
+                scope.initCarousel = function (element) {
+                    // provide any default options you want
+                    var defaultOptions = {};
+                    var customOptions = scope.$eval($(element).attr('data-options'));
+                    // combine the two options objects
+                    for (var key in customOptions) {
+                        defaultOptions[key] = customOptions[key];
+                    }
+                    // init carousel
+                    $(element).owlCarousel(defaultOptions);
+                };
+            }
+        };
+    })
+    .directive('owlCarouselItem', [function () {
+        return {
+            restrict: 'A',
+            transclude: false,
+            link: function (scope, element) {
+                // wait for the last item in the ng-repeat then call init
+                if (scope.$last) {
+                    scope.initCarousel(element.parent());
+                }
+            }
+        };
 }]);
  app.service('mainService', function () {
      var typeCalendar = true;
@@ -156,6 +251,29 @@ app.controller("calendarController", ['$scope', '$firebaseArray', 'mainService',
                  typeCalendar = false;
              }
          }
+     };
+     this.sortByDate = function (obj) {
+         var array = $.map(obj, function (value, index) {
+             return [value];
+         });
+         for (var i = 0; i < array.length; i++) {
+             if (moment() > moment(array[i].date, "MMM DD")) {
+                 array.splice(i, 1);
+                 i--;
+             }
+
+         }
+         array.sort(function (a, b) {
+             if (moment(a.date, "MMM DD") < moment(b.date, "MMM DD")) return -1;
+             if (moment(a.date, "MMM DD") > moment(b.date, "MMM DD")) return 1;
+             return 0;
+         });
+         return array;
+     };
+     this.convertToArray=function(obj){
+        return $.map(obj, function (value, index) {
+             return [value];
+         });
      };
 
      function _buildWeek(date, month, matchs) {

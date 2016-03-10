@@ -9,6 +9,9 @@
     <link type="text/css" rel="stylesheet" href="css/Style.css" />
     <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/owlcarousel/owl-carousel/owl.carousel.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/owlcarousel/owl-carousel/owl.theme.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/owlcarousel/owl-carousel/owl.transitions.css" />
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -17,8 +20,9 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/owlcarousel/owl-carousel/owl.carousel.min.js"></script>
     <script src="bower_components/moment/moment.js"></script>
-    <script src="dist/all.min.js" type="text/javascript"></script>
+    <script src="dist/all.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -33,6 +37,7 @@
             <section class="nav-left">
                 <nav>
                     <a href="#/" ng-click="menuClick()"><i class="fa fa-home"></i><span>HOME</span></a>
+                    <a href="#news" ng-click="menuClick()"><i class="fa fa-newspaper-o"></i><span>NEWS</span></a>
                     <a href="#calendar" ng-click="menuClick()"><i class="fa fa-calendar"></i><span>CALENDAR</span></a>
                     <a href="#team" ng-click="menuClick()"><i class="fa fa-users"></i><span>TEAM</span></a>
                     <a href="#table" ng-click="menuClick()"><i class="fa fa-calendar"></i><span>LADDER</span></a>
@@ -43,7 +48,6 @@
             <section class="content">
                 <div ng-view></div>
                 <div class="footer">
-                    <h4>OFFICIAL PARTNERS</h4>
                     <div class="partners">
                         <div class="col-xs-12">
                             <img class="col-xs-3" src="image/logo/chevrolet-logo.png" />
